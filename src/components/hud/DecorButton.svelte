@@ -1,10 +1,10 @@
 <script lang="ts">
-  import chartIcon from "../../assets/chart.svg";
+  import decorIcon from "../../assets/decor.svg";
 </script>
 
 <button class="icon-button" type="button">
-  <img src={chartIcon} width={36} height={36} alt="Stats menu icon" />
-  Stats
+  <img src={decorIcon} width={36} height={36} alt="Decor menu icon" />
+  Decor
 </button>
 
 <style>
