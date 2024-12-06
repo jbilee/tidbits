@@ -1,10 +1,10 @@
 <script lang="ts">
-  import cogIcon from "../../assets/cog.svg";
+  import chartIcon from "../../assets/chart.svg";
 </script>
 
 <button class="icon-button" type="button">
-  <img src={cogIcon} width={36} height={36} alt="Settings menu icon" />
-  Settings
+  <img src={chartIcon} width={36} height={36} alt="Stats menu icon" />
+  Stats
 </button>
 
 <style>
