@@ -1,11 +1,21 @@
 <script lang="ts">
+  import StatsModal from "../modals/StatsModal.svelte";
   import chartIcon from "../../assets/chart.svg";
+
+  let isShowing: boolean = $state(false);
+
+  const toggleModal = () => {
+    isShowing = !isShowing;
+  };
 </script>
 
-<button class="icon-button" type="button">
-  <img src={chartIcon} width={36} height={36} alt="Stats menu icon" />
+<button class="icon-button" type="button" onclick={toggleModal}>
+  <img src={chartIcon} width={36} height={36} alt="Stats menu icon" class="button-svg" />
   Stats
 </button>
+{#if isShowing}
+  <StatsModal {toggleModal} />
+{/if}
 
 <style>
   .icon-button {

@@ -1,5 +1,5 @@
 <script>
-  import closeIcon from "../../assets/test.svg";
+  import closeIcon from "../../assets/close.svg";
 
   const { toggleModal } = $props();
 </script>
@@ -8,8 +8,10 @@
   <div class="modal-background"></div>
   <div class="modal">
     <button class="btn-close" type="button" onclick={toggleModal}>
-      <img src={closeIcon} width={36} height={36} alt="Stats menu icon" />
+      <img src={closeIcon} width={16} height={16} alt="Close button icon" />
     </button>
+    <div>Challenges solved:</div>
+    <div>Knowledge points: bytes</div>
   </div>
 </div>
 
@@ -36,7 +38,8 @@
   }
 
   .modal {
-    padding: 1.5rem;
+    position: relative;
+    padding: 3rem;
     border-radius: 0.75rem;
     z-index: 10;
     color: #525050;
@@ -44,6 +47,8 @@
   }
 
   .btn-close {
-    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
   }
 </style>
