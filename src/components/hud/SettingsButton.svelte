@@ -1,11 +1,21 @@
 <script lang="ts">
-  import cogIcon from "../../assets/cog.svg";
+  import SettingsModal from "@/components/modals/SettingsModal.svelte";
+  import cogIcon from "@/assets/cog.svg";
+
+  let isShowing: boolean = $state(false);
+
+  const toggleModal = () => {
+    isShowing = !isShowing;
+  };
 </script>
 
-<button class="icon-button" type="button">
-  <img src={cogIcon} width={36} height={36} alt="Settings menu icon" />
+<button class="icon-button" type="button" onclick={toggleModal}>
+  <img src={cogIcon} width={36} height={36} alt="Settings menu icon" class="button-svg" />
   Settings
 </button>
+{#if isShowing}
+  <SettingsModal {toggleModal} />
+{/if}
 
 <style>
   .icon-button {
