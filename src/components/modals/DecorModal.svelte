@@ -10,11 +10,7 @@
     <button class="btn-close" type="button" onclick={toggleModal}>
       <img src={closeIcon} width={16} height={16} alt="Close button icon" />
     </button>
-    <div>Pixel style</div>
-    <div>Ambience</div>
-    <div>Load from back-up file</div>
-    <div>Download back-up file</div>
-    <div>Share</div>
+    <div>Decor container</div>
   </div>
 </div>
 

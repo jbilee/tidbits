@@ -1,11 +1,21 @@
 <script lang="ts">
   import decorIcon from "@/assets/decor.svg";
+  import DecorModal from "@/components/modals/DecorModal.svelte";
+
+  let isShowing: boolean = $state(false);
+
+  const toggleModal = () => {
+    isShowing = !isShowing;
+  };
 </script>
 
-<button class="icon-button" type="button">
-  <img src={decorIcon} width={36} height={36} alt="Decor menu icon" />
+<button class="icon-button" type="button" onclick={toggleModal}>
+  <img src={decorIcon} width={36} height={36} alt="Decor menu icon" class="button-svg" />
   Decor
 </button>
+{#if isShowing}
+  <DecorModal {toggleModal} />
+{/if}
 
 <style>
   .icon-button {
