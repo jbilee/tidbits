@@ -1,6 +1,6 @@
 <script lang="ts">
-  import StatsModal from "../modals/StatsModal.svelte";
-  import chartIcon from "../../assets/chart.svg";
+  import StatsModal from "@/components/modals/StatsModal.svelte";
+  import chartIcon from "@/assets/chart.svg";
 
   let isShowing: boolean = $state(false);
 

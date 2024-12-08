@@ -1,5 +1,5 @@
 <script lang="ts">
-  import decorIcon from "../../assets/decor.svg";
+  import decorIcon from "@/assets/decor.svg";
 </script>
 
 <button class="icon-button" type="button">

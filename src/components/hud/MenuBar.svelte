@@ -1,7 +1,7 @@
 <script lang="ts">
-  import DecorButton from "./DecorButton.svelte";
-  import PlayerStatsButton from "./PlayerStatsButton.svelte";
-  import SettingsButton from "./SettingsButton.svelte";
+  import DecorButton from "@/components/hud/DecorButton.svelte";
+  import PlayerStatsButton from "@/components/hud/PlayerStatsButton.svelte";
+  import SettingsButton from "@/components/hud/SettingsButton.svelte";
 </script>
 
 <div class="hud-item">
