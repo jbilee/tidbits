@@ -1,4 +1,5 @@
 <script>
+  import { userData } from "@/shared.svelte";
   import closeIcon from "@/assets/close.svg";
 
   const { toggleModal } = $props();
@@ -10,8 +11,8 @@
     <button class="btn-close" type="button" onclick={toggleModal}>
       <img src={closeIcon} width={16} height={16} alt="Close button icon" />
     </button>
-    <div>Challenges solved:</div>
-    <div>Knowledge points: bytes</div>
+    <div>Challenges solved: {userData.solved}</div>
+    <div>Knowledge points: {userData.knowledge.toLocaleString("ko-KR")} bytes</div>
   </div>
 </div>
 

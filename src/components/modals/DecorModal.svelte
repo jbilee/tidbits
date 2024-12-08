@@ -1,4 +1,5 @@
 <script>
+  import { userData } from "@/shared.svelte";
   import closeIcon from "@/assets/close.svg";
 
   const { toggleModal } = $props();

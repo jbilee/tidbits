@@ -1,4 +1,5 @@
 <script>
+  import { userData } from "@/shared.svelte";
   import closeIcon from "@/assets/close.svg";
 
   const { toggleModal } = $props();
@@ -10,8 +11,8 @@
     <button class="btn-close" type="button" onclick={toggleModal}>
       <img src={closeIcon} width={16} height={16} alt="Close button icon" />
     </button>
-    <div>Pixel style</div>
-    <div>Ambience</div>
+    <div>Pixel style: {userData.pixelStyle}</div>
+    <div>Ambience: {userData.ambience}</div>
     <div>Load from back-up file</div>
     <div>Download back-up file</div>
     <div>Share</div>
