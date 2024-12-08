@@ -49,7 +49,8 @@
 
   .btn-close {
     position: absolute;
-    top: 0;
-    right: 0;
+    padding: 0.3rem;
+    top: 0.75rem;
+    right: 0.75rem;
   }
 </style>

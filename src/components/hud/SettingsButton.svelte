@@ -9,7 +9,7 @@
   };
 </script>
 
-<button class="icon-button" type="button" onclick={toggleModal}>
+<button class="hud-button icon-button" type="button" onclick={toggleModal}>
   <img src={cogIcon} width={36} height={36} alt="Settings menu icon" class="button-svg" />
   Settings
 </button>

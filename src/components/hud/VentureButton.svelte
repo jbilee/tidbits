@@ -1,4 +1,4 @@
-<button class="hud-item text-large" type="button" title="Knowledge awaits!">
+<button class="hud-item hud-button text-large" type="button" title="Knowledge awaits!">
   Venture
 </button>
 

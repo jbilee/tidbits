@@ -9,7 +9,7 @@
   };
 </script>
 
-<button class="icon-button" type="button" onclick={toggleModal}>
+<button class="hud-button icon-button" type="button" onclick={toggleModal}>
   <img src={chartIcon} width={36} height={36} alt="Stats menu icon" class="button-svg" />
   Stats
 </button>

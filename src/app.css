@@ -2,11 +2,13 @@
   --base-background-light: hsl(0, 0%, 100%);
   --base-background-dark: hsl(0, 0%, 14%);
   --base-text-light: hsl(0, 1%, 32%);
-  --base-text-light-filter: invert(100%) sepia(99%) saturate(7%) hue-rotate(151deg) brightness(106%) contrast(95%);
+  --base-text-light-filter: invert(29%) sepia(6%) saturate(36%) hue-rotate(315deg) brightness(93%) contrast(83%);
   --base-text-dark: hsl(0, 0%, 98%);
-  --base-text-dark-filter: invert(29%) sepia(6%) saturate(36%) hue-rotate(315deg) brightness(93%) contrast(83%);
-  --button-hover-light: hsl(0, 8%, 49%);
-  --button-hover-dark: hsl(0, 11%, 83%);
+  --base-text-dark-filter: invert(100%) sepia(99%) saturate(7%) hue-rotate(151deg) brightness(106%) contrast(95%);
+  --button-light: hsl(0, 5%, 88%);
+  --button-dark: hsl(0, 1%, 42%);
+  --button-hover-light: hsl(0, 5%, 80%);
+  --button-hover-dark: hsl(0, 1%, 32%);
   --text-link: hsl(13, 88%, 53%);
   --text-link-hover: hsl(13, 90%, 37%);
 
@@ -50,6 +52,7 @@ button,
 textarea,
 select {
   font: inherit;
+  color: inherit;
 }
 
 p,
@@ -64,6 +67,15 @@ h6 {
 
 p {
   text-wrap: pretty;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
 }
 
 ol,
@@ -88,25 +100,27 @@ a:hover {
 button {
   border-radius: 8px;
   border: 1px solid transparent;
-  background-color: var(--base-text-light);
-  color: var(--base-text-dark);
+  background-color: transparent;
   cursor: pointer;
   transition: background-color 0.1s;
-}
-button:hover {
-  background-color: var(--button-hover-light);
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+.hud-button {
+  padding: 0.25rem 0.75rem;
+  background-color: var(--button-light);
+}
+.hud-button:hover {
+  background-color: var(--button-hover-light);
+}
+.button-svg {
+  filter: var(--base-text-light-filter);
+}
 
 .text-large {
   font-size: 1.5rem;
-}
-
-.button-svg {
-  filter: var(--base-text-light-filter);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -115,14 +129,12 @@ button:focus-visible {
     background-color: var(--base-background-dark);
   }
 
-  button {
-    background-color: var(--base-text-dark);
-    color: var(--base-text-light);
+  .hud-button {
+    background-color: var(--button-dark);
   }
-  button:hover {
+  .hud-button:hover {
     background-color: var(--button-hover-dark);
   }
-
   .button-svg {
     filter: var(--base-text-dark-filter);
   }
