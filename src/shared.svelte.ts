@@ -12,3 +12,5 @@ const initData = storageData
   : { solved: 0, knowledge: 0, decor: [], pixelStyle: "default", ambience: "default" };
 
 export const userData: UserData = $state(initData);
+
+export const activeModal = $state({ name: "" });

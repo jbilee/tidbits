@@ -1,14 +1,12 @@
 <script>
-  import { userData } from "@/shared.svelte";
+  import { activeModal, userData } from "@/shared.svelte";
   import closeIcon from "@/assets/close.svg";
-
-  const { toggleModal } = $props();
 </script>
 
 <div class="container">
   <div class="modal-background"></div>
   <div class="modal">
-    <button class="btn-close" type="button" onclick={toggleModal}>
+    <button class="btn-close" type="button" onclick={() => (activeModal.name = "")}>
       <img src={closeIcon} width={16} height={16} alt="Close button icon" />
     </button>
     <div>Challenges solved: {userData.solved}</div>

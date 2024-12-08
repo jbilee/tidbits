@@ -1,20 +1,20 @@
 <script lang="ts">
-  import decorIcon from "@/assets/decor.svg";
   import DecorModal from "@/components/modals/DecorModal.svelte";
-
-  let isShowing: boolean = $state(false);
-
-  const toggleModal = () => {
-    isShowing = !isShowing;
-  };
+  import { activeModal } from "@/shared.svelte";
+  import decorIcon from "@/assets/decor.svg";
 </script>
 
-<button class="hud-button icon-button" type="button" onclick={toggleModal}>
+<button
+  class="hud-button icon-button"
+  type="button"
+  onclick={() => (activeModal.name = "decor")}
+  tabindex={activeModal.name === "" ? 2 : -1}
+>
   <img src={decorIcon} width={36} height={36} alt="Decor menu icon" class="button-svg" />
   Decor
 </button>
-{#if isShowing}
-  <DecorModal {toggleModal} />
+{#if activeModal.name === "decor"}
+  <DecorModal />
 {/if}
 
 <style>

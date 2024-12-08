@@ -1,20 +1,20 @@
 <script lang="ts">
   import SettingsModal from "@/components/modals/SettingsModal.svelte";
+  import { activeModal } from "@/shared.svelte";
   import cogIcon from "@/assets/cog.svg";
-
-  let isShowing: boolean = $state(false);
-
-  const toggleModal = () => {
-    isShowing = !isShowing;
-  };
 </script>
 
-<button class="hud-button icon-button" type="button" onclick={toggleModal}>
+<button
+  class="hud-button icon-button"
+  type="button"
+  onclick={() => (activeModal.name = "settings")}
+  tabindex={activeModal.name === "" ? 3 : -1}
+>
   <img src={cogIcon} width={36} height={36} alt="Settings menu icon" class="button-svg" />
   Settings
 </button>
-{#if isShowing}
-  <SettingsModal {toggleModal} />
+{#if activeModal.name === "settings"}
+  <SettingsModal />
 {/if}
 
 <style>

@@ -1,4 +1,13 @@
-<button class="hud-item hud-button text-large" type="button" title="Knowledge awaits!">
+<script lang="ts">
+  import { activeModal } from "@/shared.svelte";
+</script>
+
+<button
+  class="hud-item hud-button text-large"
+  type="button"
+  title="Knowledge awaits!"
+  tabindex={activeModal.name === "" ? 4 : -1}
+>
   Venture
 </button>
 
