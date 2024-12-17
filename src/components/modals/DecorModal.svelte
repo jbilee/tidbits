@@ -1,6 +1,12 @@
 <script>
   import { activeModal, userData } from "@/shared.svelte";
   import closeIcon from "@/assets/close.svg";
+  import { decors } from "@/assets/decors";
+
+  // TODO
+  const buyDecor = () => {};
+  const placeDecor = () => {};
+  const removeDecor = () => {};
 </script>
 
 <div class="container">
@@ -9,7 +15,28 @@
     <button class="btn-close" type="button" onclick={() => (activeModal.name = "")}>
       <img src={closeIcon} width={16} height={16} alt="Close button icon" />
     </button>
-    <div>Decor container</div>
+    <ul class="stock-list">
+      {#each decors as decor (decor.id)}
+        <li class="stock-item">
+          <img src={closeIcon} width={75} height={75} alt="{decor.name} decor" title="{decor.name} decor" />
+          <div>
+            <p>[{decor.name}]</p>
+            <p>Cost: {decor.cost} bytes</p>
+            <p>
+              {#if userData.decorsPlaced.includes(decor.name)}
+                <button class="btn-buy" type="button" onclick={removeDecor}>Remove</button>
+              {:else if userData.decorsUnlocked.includes(decor.name)}
+                <button class="btn-buy" type="button" onclick={placeDecor}>Place</button>
+              {:else}
+                <button class="btn-buy" type="button" onclick={buyDecor} disabled={userData.knowledge < decor.cost}>
+                  Buy
+                </button>
+              {/if}
+            </p>
+          </div>
+        </li>
+      {/each}
+    </ul>
   </div>
 </div>
 
@@ -42,6 +69,8 @@
     z-index: 10;
     color: #525050;
     background-color: #f9f9f9;
+    max-height: 500px;
+    overflow: hidden;
   }
 
   .btn-close {
@@ -49,5 +78,32 @@
     padding: 0.3rem;
     top: 0.75rem;
     right: 0.75rem;
+  }
+
+  .stock-list {
+    max-height: 100%;
+    padding-right: 1rem;
+    overflow: auto;
+    scrollbar-gutter: stable;
+  }
+
+  .stock-item {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  .stock-item:last-of-type {
+    margin: 0;
+  }
+
+  .btn-buy {
+    padding: 0.25rem 0.75rem;
+    width: 6rem;
+    color: var(--base-text-dark);
+    background-color: var(--base-background-dark);
+  }
+  .btn-buy:disabled {
+    cursor: default;
+    opacity: 0.5;
   }
 </style>

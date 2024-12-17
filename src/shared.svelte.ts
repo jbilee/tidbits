@@ -1,7 +1,8 @@
 type UserData = {
   solved: number;
   knowledge: number;
-  decor: string[];
+  decorsUnlocked: string[];
+  decorsPlaced: string[];
   pixelStyle: string;
   ambience: string;
 };
@@ -9,8 +10,12 @@ type UserData = {
 const storageData = localStorage.getItem("user-data");
 const initData = storageData
   ? JSON.parse(storageData)
-  : { solved: 0, knowledge: 0, decor: [], pixelStyle: "default", ambience: "default" };
+  : { solved: 0, knowledge: 0, decorsUnlocked: ["Deer", "Bonfire"], decorsPlaced: ["Deer"], pixelStyle: "default", ambience: "default" };
 
 export const userData: UserData = $state(initData);
+
+export const saveData = () => {
+  localStorage.setItem("user-data", JSON.stringify(userData));
+};
 
 export const activeModal = $state({ name: "" });
