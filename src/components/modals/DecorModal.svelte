@@ -1,10 +1,15 @@
-<script>
-  import { activeModal, userData } from "@/shared.svelte";
+<script lang="ts">
+  import { activeModal, saveData, userData } from "@/shared.svelte";
   import closeIcon from "@/assets/close.svg";
   import { decors } from "@/assets/decors";
 
+  const buyDecor = (name: string, cost: number) => {
+    userData.decorsUnlocked.push(name);
+    userData.knowledge -= cost;
+    saveData();
+  };
+
   // TODO
-  const buyDecor = () => {};
   const placeDecor = () => {};
   const removeDecor = () => {};
 </script>
@@ -28,7 +33,12 @@
               {:else if userData.decorsUnlocked.includes(decor.name)}
                 <button class="btn-buy" type="button" onclick={placeDecor}>Place</button>
               {:else}
-                <button class="btn-buy" type="button" onclick={buyDecor} disabled={userData.knowledge < decor.cost}>
+                <button
+                  class="btn-buy"
+                  type="button"
+                  onclick={() => buyDecor(decor.name, decor.cost)}
+                  disabled={userData.knowledge < decor.cost}
+                >
                   Buy
                 </button>
               {/if}
