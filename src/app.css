@@ -11,6 +11,7 @@
   --button-hover-dark: hsl(0, 1%, 32%);
   --text-link: hsl(13, 88%, 53%);
   --text-link-hover: hsl(13, 90%, 37%);
+  --scroll-bar-thumb: hsl(30, 2%, 76%);
 
   font-family: "Courier New", Courier, "Lucida Console", Monaco, "Consolas", "Menlo", monospace;
   line-height: 1.5;
@@ -45,6 +46,18 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100dvh;
+
+  ::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 2rem;
+    background-color: var(--scroll-bar-thumb);
+    transition: background-color 0.3s;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    opacity: 0.5;
+  }
 }
 
 input,
