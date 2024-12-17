@@ -9,8 +9,12 @@
     saveData();
   };
 
+  const placeDecor = (name: string) => {
+    userData.decorsPlaced.push(name);
+    saveData();
+  };
+
   // TODO
-  const placeDecor = () => {};
   const removeDecor = () => {};
 </script>
 
@@ -31,7 +35,7 @@
               {#if userData.decorsPlaced.includes(decor.name)}
                 <button class="btn-buy" type="button" onclick={removeDecor}>Remove</button>
               {:else if userData.decorsUnlocked.includes(decor.name)}
-                <button class="btn-buy" type="button" onclick={placeDecor}>Place</button>
+                <button class="btn-buy" type="button" onclick={() => placeDecor(decor.name)}>Place</button>
               {:else}
                 <button
                   class="btn-buy"
