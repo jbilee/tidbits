@@ -14,8 +14,10 @@
     saveData();
   };
 
-  // TODO
-  const removeDecor = () => {};
+  const removeDecor = (name: string) => {
+    userData.decorsPlaced = userData.decorsPlaced.filter((decor) => decor !== name);
+    saveData();
+  };
 </script>
 
 <div class="container">
@@ -33,7 +35,7 @@
             <p>Cost: {decor.cost} bytes</p>
             <p>
               {#if userData.decorsPlaced.includes(decor.name)}
-                <button class="btn-buy" type="button" onclick={removeDecor}>Remove</button>
+                <button class="btn-buy" type="button" onclick={() => removeDecor(decor.name)}>Remove</button>
               {:else if userData.decorsUnlocked.includes(decor.name)}
                 <button class="btn-buy" type="button" onclick={() => placeDecor(decor.name)}>Place</button>
               {:else}
