@@ -1,4 +1,5 @@
 <script>
+  import { getDownloadableData } from "@/utils/file";
   import { activeModal, userData } from "@/shared.svelte";
   import closeIcon from "@/assets/close.svg";
 </script>
@@ -12,7 +13,7 @@
     <div>Pixel style: {userData.pixelStyle}</div>
     <div>Ambience: {userData.ambience}</div>
     <div>Load from back-up file</div>
-    <div>Download back-up file</div>
+    <div><a href={getDownloadableData(userData)} download="tidbits.txt">Download back-up file</a></div>
     <div>Share</div>
   </div>
 </div>

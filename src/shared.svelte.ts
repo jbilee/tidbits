@@ -1,4 +1,4 @@
-type UserData = {
+export type UserData = {
   solved: number;
   knowledge: number;
   decorsUnlocked: string[];
@@ -10,7 +10,7 @@ type UserData = {
 const storageData = localStorage.getItem("user-data");
 const initData = storageData
   ? JSON.parse(storageData)
-  : { solved: 0, knowledge: 0, decorsUnlocked: ["Deer", "Bonfire"], decorsPlaced: ["Deer"], pixelStyle: "default", ambience: "default" };
+  : { solved: 0, knowledge: 0, decorsUnlocked: [], decorsPlaced: [], pixelStyle: "default", ambience: "default" };
 
 export const userData: UserData = $state(initData);
 
