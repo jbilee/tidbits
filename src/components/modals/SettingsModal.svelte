@@ -1,7 +1,22 @@
-<script>
-  import { getDownloadableData } from "@/utils/file";
-  import { activeModal, userData } from "@/shared.svelte";
+<script lang="ts">
+  import { getDownloadableData, getLoadedData } from "@/utils/file";
+  import { activeModal, replaceData, saveData, userData } from "@/shared.svelte";
   import closeIcon from "@/assets/close.svg";
+  import type { UserData } from "@/shared.svelte";
+
+  const handleLoad = () => {
+    const handleData = (data: string) => {
+      try {
+        const parsedData: UserData = JSON.parse(data);
+        replaceData(parsedData);
+        saveData();
+      } catch (e) {
+        alert("Invalid file format.");
+      }
+    };
+
+    getLoadedData(handleData);
+  };
 </script>
 
 <div class="container">
@@ -12,7 +27,10 @@
     </button>
     <div>Pixel style: {userData.pixelStyle}</div>
     <div>Ambience: {userData.ambience}</div>
-    <div>Load from back-up file</div>
+    <div>
+      <input type="file" id="uploader" accept="text/*" style="display:none" onchange={() => handleLoad()} />
+      <button onclick={() => document.getElementById("uploader")?.click()}>Load from back-up file</button>
+    </div>
     <div><a href={getDownloadableData(userData)} download="tidbits.txt">Download back-up file</a></div>
     <div>Share</div>
   </div>

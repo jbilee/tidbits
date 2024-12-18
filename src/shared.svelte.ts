@@ -18,4 +18,13 @@ export const saveData = () => {
   localStorage.setItem("user-data", JSON.stringify(userData));
 };
 
+export const replaceData = (data: UserData) => {
+  userData.solved = data.solved;
+  userData.knowledge = data.knowledge;
+  userData.decorsUnlocked = [...data.decorsUnlocked];
+  userData.decorsPlaced = [...data.decorsPlaced];
+  userData.pixelStyle = data.pixelStyle;
+  userData.ambience = data.ambience;
+};
+
 export const activeModal = $state({ name: "" });
