@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Orbit&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Hahmlet:wght@100..900&display=swap");
 
 :root {
   --base-background-light: hsl(0, 0%, 100%);
@@ -110,11 +110,12 @@ a:hover {
 #app {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .ko {
-  font-family: "Orbit", monospace;
+  font-family: "Hahmlet", serif;
+  font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
 }
@@ -143,6 +144,12 @@ button:focus-visible {
 
 .text-large {
   font-size: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  #app {
+    padding: 2rem;
+  }
 }
 
 @media (prefers-color-scheme: dark) {

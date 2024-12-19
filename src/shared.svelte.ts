@@ -1,5 +1,16 @@
+export type VentureData = {
+  total: number;
+  categories: CategoryData[];
+};
+
+export type CategoryData = {
+  name: string;
+  cleared: number;
+  answered: number[];
+};
+
 export type UserData = {
-  solved: number;
+  solved: VentureData;
   knowledge: number;
   decorsUnlocked: string[];
   decorsPlaced: string[];
@@ -8,9 +19,25 @@ export type UserData = {
 };
 
 const storageData = localStorage.getItem("user-data");
+const initSolved = {
+  total: 0,
+  categories: [
+    { name: "os", cleared: 0, answered: [] },
+    { name: "networks", cleared: 0, answered: [] },
+    { name: "db", cleared: 0, answered: [] },
+    { name: "js", cleared: 0, answered: [] },
+  ],
+};
 const initData = storageData
   ? JSON.parse(storageData)
-  : { solved: 0, knowledge: 0, decorsUnlocked: [], decorsPlaced: [], pixelStyle: "default", ambience: "default" };
+  : {
+      solved: initSolved,
+      knowledge: 0,
+      decorsUnlocked: [],
+      decorsPlaced: [],
+      pixelStyle: "default",
+      ambience: "default",
+    };
 
 export const userData: UserData = $state(initData);
 
