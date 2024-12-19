@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { activeModal, userData } from "@/shared.svelte";
   import closeIcon from "@/assets/close.svg";
 </script>

@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { push } from "svelte-spa-router";
   import { activeModal } from "@/shared.svelte";
 </script>
 
@@ -6,6 +7,7 @@
   class="hud-item hud-button text-large"
   type="button"
   title="Knowledge awaits!"
+  onclick={() => push("/venture")}
   tabindex={activeModal.name === "" ? 4 : -1}
 >
   Venture
